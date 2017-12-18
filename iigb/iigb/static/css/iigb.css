@@ -14,22 +14,25 @@ body {
 }
 
 .heading .container .lockup {
-    font-size: 2em;
-    line-height: 1.1em;
-    font-family: 'Roboto', sans-serif;
+    color: white;
 
+    font-size: 1.9em;
+    line-height: 1.1em;
+
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     position: absolute;
+
+    height: 5.2em;
+    width: 11em;
+
     bottom: -4px;
     left: 20px;
 
-    height: 5em;
-    width: 10em;
+    padding: 22px;
 
     background: rgba(44,111,170, 0.8);
-    color: white;
     border-bottom: 4px rgba(175, 0, 15, 1) solid;
-    padding: 10px;
 }
 
 .content {
@@ -41,10 +44,15 @@ body {
     padding: 1em;
 }
 
+.pullout .text {
+    font-size: 1.1em;
+}
+
 .pullout .stat {
     border-left: 3px #01539e solid;
 }
 
 .pullout .stat h1 {
     color: #01539e;
+    font-size: 3.3em;
 }
