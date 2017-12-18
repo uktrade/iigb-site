@@ -1,0 +1,47 @@
+body {
+    font-family: 'Roboto', sans-serif
+}
+
+.heading {
+    position: relative;
+    padding: 0;
+    background-size: cover;
+    margin-bottom: 0px;
+}
+
+.heading .container {
+    padding: 0;
+}
+
+.heading.hero {
+    float: left;
+    border: red 1px solid;
+}
+.heading .lockup {
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+
+    height: 5em;
+    width: 10em;
+
+    background: rgba(44,111,170, 0.8);
+    color: white;
+    border-bottom: 3px rgba(175, 0, 15, 1) solid;
+    padding: 10px;
+}
+
+.content {
+    padding: 1em;
+}
+
+.pullout {
+    background-color: #fcfbf9;
+    padding: 1em;
+}
+
+.pullout .stat {
+    color: #01539e;
+    border-left: 3px #01539e solid;
+}
