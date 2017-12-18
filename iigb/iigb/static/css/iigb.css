@@ -13,14 +13,14 @@ body {
     padding: 0;
 }
 
-.heading.hero {
-    float: left;
-    border: red 1px solid;
-}
-.heading .lockup {
+.heading .container .lockup {
+    font-size: 2em;
+    line-height: 1.1em;
+    font-family: 'Roboto', sans-serif;
+
     font-weight: bold;
     position: absolute;
-    bottom: 0px;
+    bottom: -4px;
     left: 20px;
 
     height: 5em;
@@ -28,7 +28,7 @@ body {
 
     background: rgba(44,111,170, 0.8);
     color: white;
-    border-bottom: 3px rgba(175, 0, 15, 1) solid;
+    border-bottom: 4px rgba(175, 0, 15, 1) solid;
     padding: 10px;
 }
 
@@ -42,6 +42,9 @@ body {
 }
 
 .pullout .stat {
-    color: #01539e;
     border-left: 3px #01539e solid;
+}
+
+.pullout .stat h1 {
+    color: #01539e;
 }

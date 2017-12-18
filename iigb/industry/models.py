@@ -31,10 +31,18 @@ class HeaderBlock(StructBlock):
 
 class PulloutBlock(StructBlock):
     text = CharBlock()
-    stat = CharBlock()
+    stat_header = CharBlock()
+    stat_text = CharBlock()
 
     class Meta:
         template = "industry/blocks/pullout.html"
+
+
+class IndustrySnippetBlock(SnippetChooserBlock):
+    target_model = StaticContent
+
+    class Meta:
+        template = "industry/blocks/content.html"
 
 
 class IndustryPage(Page):
@@ -63,7 +71,7 @@ class IndustryPage(Page):
         ('heading', HeaderBlock()),
         ('pullout', PulloutBlock()),
         ('content', TextBlock()),
-        ('snippet', SnippetChooserBlock(target_model=StaticContent)),
+        ('snippet', IndustrySnippetBlock(target_model=StaticContent)),
     ])
 
     content_panels = Page.content_panels + [
