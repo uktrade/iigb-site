@@ -42,7 +42,7 @@ class IndustrySnippetBlock(SnippetChooserBlock):
     target_model = StaticContent
 
     class Meta:
-        template = "industry/blocks/content.html"
+        template = "industry/blocks/snippet.html"
 
 
 class IndustryPage(Page):

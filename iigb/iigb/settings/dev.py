@@ -15,6 +15,8 @@ INSTALLED_APPS.extend([
     'debug_toolbar',
 ])
 
+INSTALLED_APPS.append("django_extensions")
+
 MIDDLEWARE.extend([
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ])

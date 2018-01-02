@@ -1,5 +1,16 @@
 body {
-    font-family: 'Roboto', sans-serif
+    font-family: 'Roboto', sans-serif;
+    background: #160d37;
+}
+
+content div {
+    background: white;
+}
+
+.header {
+    background: #1e1348;
+    font-color: white;
+    height: 101px;
 }
 
 .heading {
@@ -39,17 +50,36 @@ body {
     padding: 1em;
 }
 
+
+.sharing-bar {
+    background: #1e1348;
+    color: white;
+    font-size: 18px;
+    vertical-align: center;
+}
+
+
+.stat {
+    padding-left: 8px;
+}
+
 .pullout {
     background-color: #fcfbf9;
     padding: 1em;
 }
 
 .pullout .text {
-    font-size: 1.1em;
+    font-size: 1.2em;
+    display: inline-block;
+    overflow-x: hidden;
+    width: 75%;
+    margin-top: 16px;
+    vertical-align: top;
 }
 
 .pullout .stat {
     border-left: 3px #01539e solid;
+    display: inline-block;
 }
 
 .pullout .stat h1 {

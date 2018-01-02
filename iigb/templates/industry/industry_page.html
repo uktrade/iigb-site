@@ -6,9 +6,10 @@
 {% block body_class %}industry{% endblock %}
 
 {% block content %}
+<div class="container">
 {% for block in page.body %}
-    <div class="container">{% include_block block %}</div>
+    {% include_block block %}
 {% endfor %}
 
-
+</div>
 {% endblock %}
