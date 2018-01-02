@@ -56,6 +56,16 @@ content div {
     color: white;
     font-size: 18px;
     vertical-align: center;
+    text-align: center;
+    padding-top: 16px;
+}
+
+.sharing-bar .fa-stack-1x {
+    color: #1e1348;
+}
+
+.sharing-bar div {
+    /* display: inline-block;*/
 }
 
 
