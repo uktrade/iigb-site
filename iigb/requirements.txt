@@ -1,3 +1,9 @@
 Django>=2.0,<2.1
+
+# TODO - move this to uktrade
+git+https://github.com/stuaxo/wagtail-markdown.git@wagtail2#egg=wagtail-markdown
+gunicorn==19.7.1
+psycopg2==2.7.3.2
+
 wagtail==2.0a0
-wagtailmarkdownblock==0.3.1
+whitenoise==3.3.1
