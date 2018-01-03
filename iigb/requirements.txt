@@ -1,4 +1,5 @@
 Django>=2.0,<2.1
+dj-database-url==0.4.2
 
 # TODO - move this to uktrade
 git+https://github.com/stuaxo/wagtail-markdown.git@wagtail2#egg=wagtail-markdown
