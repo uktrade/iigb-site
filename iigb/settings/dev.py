@@ -11,9 +11,13 @@ SECRET_KEY = 'r#dy$#jw_1-ny14190b^#$c#l@f*)=l(j^td%u!=60sfqo+ui9'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-INSTALLED_APPS.extend([
-    'debug_toolbar',
-])
+try:
+    import debug_toolbar
+    INSTALLED_APPS.extend([
+        'debug_toolbar',
+    ])
+except ImportError:
+    pass
 
 INSTALLED_APPS.append("django_extensions")
 
