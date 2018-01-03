@@ -5,7 +5,10 @@
   "keywords": ["python", "django", "wagtail", "iigb"],
   "env": {
     "DJANGO_DEBUG": "off",
-    "DJANGO_SETTINGS_MODULE": "iigb.settings.production",
+    "DJANGO_SETTINGS_MODULE": {
+      "description": "Django settings module",
+      "value": "iigb.settings.production",
+    },
     "DJANGO_SECURE_SSL_REDIRECT": "on",
     "SECRET_KEY": {
       "description": "A randomly generated secret to secure your Django installation",
