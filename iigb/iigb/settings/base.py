@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'search',
     'industry',
 
+    'wagtailmarkdown',
+
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',

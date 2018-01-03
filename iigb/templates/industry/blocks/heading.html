@@ -1,8 +1,9 @@
+{% load wagtailmarkdown %}
 {% load wagtailimages_tags %}
 
 {% image value.background_image width-1024 as hero %}
 <section class="row heading jumbotron-fluid" style="background-image: url('{{ hero.url }}'); background-position: center center; height: {{hero.height}}px; ">
 <div class="container">
-    <h1 class="lockup">{{ value.text }}</h1>
+    <h1 class="lockup">{{ value.text|markdown }}</h1>
 </div>
 </section>
