@@ -1,4 +1,4 @@
-from ._heroku import *
+from .heroku_base import *
 
 DEBUG = False
 
