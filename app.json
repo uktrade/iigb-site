@@ -4,16 +4,12 @@
   "repository": "https://github.com/uktrade/iigb-beta-website",
   "keywords": ["python", "django", "wagtail", "iigb"],
   "env": {
-    "DJANGO_DEBUG": {
-      "value": "off",
-    },
+    "DJANGO_DEBUG": "on",
     "DJANGO_SETTINGS_MODULE": {
       "description": "Django settings module",
       "value": "iigb.settings.production",
     },
-    "DJANGO_SECURE_SSL_REDIRECT": {
-      "value": "on",
-    },
+    "DJANGO_SECURE_SSL_REDIRECT": "on",
     "SECRET_KEY": {
       "description": "A randomly generated secret to secure your Django installation",
       "generator": "secret"
