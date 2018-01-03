@@ -1,10 +1,13 @@
 Django>=2.0,<2.1
 dj-database-url==0.4.2
 
-# TODO - move this to uktrade
-git+https://github.com/stuaxo/wagtail-markdown.git@wagtail2#egg=wagtail-markdown
 gunicorn==19.7.1
 psycopg2==2.7.3.2
 
-wagtail==2.0a0
+# TODO - switch to pypi when wagtail2 is out in january # https://stackoverflow.com/questions/47796862/should-i-use-wagtail-2-for-a-new-project
+-e git+https://github.com/wagtail/wagtail.git#egg=wagtail
+
+# TODO - move wagtail-markdown to uktrade
+-e git+https://github.com/stuaxo/wagtail-markdown.git@wagtail2#egg=wagtail-markdown
+
 whitenoise==3.3.1
