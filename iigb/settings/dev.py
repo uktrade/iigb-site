@@ -15,7 +15,7 @@ if DEBUG:
     for app in ["debug_toolbar", "django_extensions"]:
         try:
             __import__(app)
-            INSTALLED_APPS.append("django_extensions")
+            INSTALLED_APPS.append(app)
         except ImportError:
             pass
 
