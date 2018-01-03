@@ -8,11 +8,13 @@
     "DJANGO_SETTINGS_MODULE": {
       "description": "Django settings module",
       "value": "iigb.settings.production",
+      "required": true,
     },
     "DJANGO_SECURE_SSL_REDIRECT": "on",
     "SECRET_KEY": {
       "description": "A randomly generated secret to secure your Django installation",
-      "generator": "secret"
+      "generator": "secret",
+      "required": true,
     },
   },
   "addons": [
