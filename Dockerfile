@@ -4,7 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 0.33.8
+ENV NODE_VERSION 9.3.0
 
 # Install nvm with node and npm
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
