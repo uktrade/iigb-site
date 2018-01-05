@@ -3,7 +3,15 @@ FROM python:3.6
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+ENV NVM_DIR /usr/local/nvm # or ~/.nvm , depending
+ENV NODE_VERSION 0.10.33
+
+# Install nvm with node and npm
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
 
 # Required to compile install wagtail dev static files [1] until 2.0 is released on pypi
 #RUN apt-get update && apt-get install -y nodejs nodejs-legacy npm && apt-get clean && rm -rf /var/lib/apt/lists/*
