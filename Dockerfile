@@ -13,6 +13,9 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | b
     && nvm alias default $NODE_VERSION \
     && nvm use default
 
+RUN npm install node
+RUN npm use node
+
 # Required to compile install wagtail dev static files [1] until 2.0 is released on pypi
 #RUN apt-get update && apt-get install -y nodejs nodejs-legacy npm && apt-get clean && rm -rf /var/lib/apt/lists/*
 
