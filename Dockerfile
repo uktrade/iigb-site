@@ -4,7 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 0.10.33
+ENV NODE_VERSION 0.33.8
 
 # Install nvm with node and npm
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
@@ -15,9 +15,6 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | b
 
 # Required to compile install wagtail dev static files [1] until 2.0 is released on pypi
 #RUN apt-get update && apt-get install -y nodejs nodejs-legacy npm && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-RUN nvm install node
-RUN nvm use node
 
 COPY requirements.txt /usr/src/app/
 # Different src directory for pip to prevent 'pip install -e' packages to be installed in /usr/src/app/
