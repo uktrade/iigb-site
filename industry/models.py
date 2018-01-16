@@ -1,93 +1,145 @@
 from django.db import models
-from django.db.models import CASCADE
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 
-from wagtail.core.blocks import StructBlock, CharBlock, TextBlock
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.core.blocks import StructBlock, CharBlock
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
-from wagtail.images.blocks import ImageChooserBlock
-from wagtail.snippets.blocks import SnippetChooserBlock
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
-from wagtail.snippets.models import register_snippet
+from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtailmarkdown.blocks import MarkdownBlock
 from wagtailmarkdown.fields import MarkdownField
-from wagtailmarkdown.edit_handlers import MarkdownPanel
 
 
-@register_snippet
-class StaticContent(models.Model):
-    text = MarkdownField()
+class IndustriesLandingPage(Page):
+    subpage_types = ['industry.IndustryPage']
 
-    panels = [
-        MarkdownPanel('text'),
+    # page fields
+    lockup = models.CharField(max_length=255)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('lockup'),
     ]
 
-    def __str__(self):
-        return self.text
+    def get_context(self, request):
+        context = super(IndustriesLandingPage, self).get_context(request)
+        context['industry_pages'] = IndustryPage.objects.all()
+        return context
 
 
-class FindUsOn(models.Model):
-    pass
-
-
-class HeaderBlock(StructBlock):
-    text = CharBlock()
-    background_image = ImageChooserBlock(required=True)
-
+class MarkdownSectionBlock(StructBlock):
     class Meta:
-        template = "industry/blocks/heading.html"
+        template = 'sections/markdown.html'
 
-
-class PulloutBlock(StructBlock):
-    text = MarkdownBlock()
-    stat_header = CharBlock()
-    stat_text = CharBlock()
-
-    class Meta:
-        template = "industry/blocks/pullout.html"
-
-
-class IndustrySnippetBlock(SnippetChooserBlock):
-    target_model = StaticContent
-
-    class Meta:
-        template = "industry/blocks/snippet.html"
+    # accordion section
+    title = CharBlock(max_length=255)
+    content = MarkdownBlock()
 
 
 class IndustryPage(Page):
-    """
-    header:
-       - lockup text
-       - hero image
+    subpage_types = ['industry.IndustryPage']
 
+    # lockup and hero are so they can be easily queried per page
+    # related industries are not in the model - they are just child pages
 
-    intro
-       - pullout text
-       - pullout star
+    # used by external pages
+    description = models.TextField()  # appears in tile
+    featured = models.BooleanField(default=False)  # industry appears in home
 
-    content
-       made up of sections
+    # page fields
+    lockup = models.CharField(max_length=255)
+    hero_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
-    next steps
-        this is basically a snippet
-        but has formatting
-    """
-    # header
-    # heading lockup
-    # hero image
-
-    body = StreamField([
-        ('heading', HeaderBlock()),
-        ('pullout', PulloutBlock()),
-        ('content', MarkdownBlock()),
-        ('common_content', IndustrySnippetBlock(target_model=StaticContent)),
+    # accordion
+    subsections = StreamField([
+        ('markdown', MarkdownSectionBlock()),
     ])
 
-    report_problem = models.ForeignKey(StaticContent, on_delete=CASCADE, null=True, related_name='report_problem')
-    sharing_text = models.ForeignKey(StaticContent, on_delete=CASCADE, null=True, related_name='sharing_text')
+    content_panels = Page.content_panels + [
+        FieldPanel('description'),
+        ImageChooserPanel('hero_image'),
+        FieldPanel('lockup'),
+        StreamFieldPanel('subsections')
+    ]
+
+
+class SetupGuideLandingPage(Page):
+    subpage_types = ['industry.SetupGuidePage']
+
+    # page fields
+    lockup = models.CharField(max_length=255)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body'),
-        SnippetChooserPanel('report_problem'),
-        SnippetChooserPanel('sharing_text'),
+        FieldPanel('lockup'),
     ]
+
+
+class SetupGuidePage(Page):
+    # lockup and hero are so they can be easily queried per page
+
+    description = models.TextField(max_length=255)  # appears in tile
+
+    # page fields
+    lockup = models.CharField(max_length=255)
+
+    # accordion
+    subsections = StreamField([
+        ('markdown', MarkdownSectionBlock()),
+    ])
+
+    content_panels = Page.content_panels + [
+        FieldPanel('description'),
+        FieldPanel('lockup'),
+        StreamFieldPanel('subsections')
+    ]
+
+
+# Settings (Global Text for the website)
+
+
+@register_setting
+class StaticText(BaseSetting):
+    report_problem = MarkdownField()
+
+
+@register_setting
+class NextSteps(BaseSetting):
+    industry = MarkdownField()
+    setup_guide = MarkdownField()
+
+
+@register_setting
+class ShareSettings(BaseSetting):
+    """
+    Sharing bar
+    """
+    text = models.CharField(max_length=255)
+    twitter = models.URLField(
+        help_text='Twitter URL')
+    facebook = models.URLField(
+        help_text='Facebook page URL')
+    linkedin = models.URLField(
+        help_text='Linkedin URL')
+    youtube = models.URLField(
+        help_text='YouTube channel or user account URL')
+
+
+@register_setting
+class SocialMediaSettings(BaseSetting):
+    """
+    Social bar at the bottom of the site
+    """
+    text = models.CharField(max_length=255)
+    twitter = models.URLField(
+        help_text='Twitter URL')
+    facebook = models.URLField(
+        help_text='Facebook page URL')
+    linkedin = models.URLField(
+        help_text='Linkedin URL')
+    youtube = models.URLField(
+        help_text='YouTube channel or user account URL')

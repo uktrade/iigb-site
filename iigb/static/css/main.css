@@ -1,8 +1,134 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background: #160d37;
+    background-color: #160d37;
 }
 
+/* Override boostrap defaults.
+
+   This could be moved to a bootstrap theme
+   to avoid having to use !important.
+ */
+
+/* navbar.less */
+#navbar {
+    background: #1e1348;
+    border-bottom: none;
+    margin-bottom: 0 !important;
+}
+
+/* navbar.less */
+.navbar {
+    background: #1e1348;
+    border-bottom: none;
+    margin-bottom: 0 !important;
+}
+
+.navbar-nav {
+    position: absolute;
+    right: 7rem;
+    bottom: 0;
+}
+
+.navbar-nav li.active a {
+    color: white !important;
+    font-weight: bold;
+    background: inherit !important;
+    border-bottom: 3px solid red;
+}
+
+.navbar-nav li a {
+    color: white !important;
+    font-weight: bold;
+    background: inherit !important;
+}
+
+.navbar-nav li a:hover {
+    color: white !important;
+    font-weight: bold;
+    background: inherit !important;
+}
+
+
+.navbar-brand {
+    height: 110px;
+}
+
+.navbar-static-top {
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    background: #1e1348;
+    border-bottom: none;
+    margin-bottom: 0 !important;
+}
+
+.jumbotron {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background-color: inherit;
+}
+
+.container {
+    background: white;
+}
+
+.container-flow {
+    background: white;
+}
+
+.heading .container {
+    position: relative;
+}
+
+/* header + lockup */
+.heading .container .lockup {
+    position: absolute;
+
+    color: white;
+
+    font-size: 2.2rem;
+    line-height: 1.1em;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+
+    width: 30rem;
+
+    bottom: 0px;
+    left: 60px;
+
+    margin: 0;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    background: rgba(44,111,170, 0.8);
+    border-bottom: 4px rgba(175, 0, 15, 1) solid;
+}
+
+.tile {
+    display: inline-block;
+    width: 340px;
+    height: 340px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.tile h2 {
+    background: #00549f;
+    margin-bottom: 0px;
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: 6px;
+}
+
+.tile h2 a {
+    color: white;
+}
+
+/*
 content div {
     background: white;
 }
@@ -63,11 +189,6 @@ content div {
     color: #1e1348;
 }
 
-.sharing-bar div {
-    /* display: inline-block;*/
-}
-
-
 .stat {
     padding-left: 8px;
 }
@@ -95,3 +216,4 @@ content div {
     color: #01539e;
     font-size: 3.3em;
 }
+*/
