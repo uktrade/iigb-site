@@ -77,34 +77,53 @@ body {
     background: white;
 }
 
-.heading .container {
+.panel-default {
+    border: none !important;
+}
+
+.panel-group {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.panel-heading {
+    background: inherit !important;
+    /* background-color: rgb(0, 126, 163) !important; */
+}
+
+.panel-title {
+    color: rgb(0, 126, 163) !important;
+    font-weight: bold;
+    font-size: 2rem;
+}
+/* non bootstrap elements */
+
+.heading .hero {
     position: relative;
 }
 
 /* header + lockup */
-.heading .container .lockup {
+.heading .hero h1.lockup {
     position: absolute;
 
     color: white;
 
-    font-size: 2.2rem;
+    font-size: 3rem;
     line-height: 1.1em;
 
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 
-    width: 30rem;
+    min-height: 180px;
+    width: 44rem;
 
     bottom: 0px;
     left: 60px;
 
     margin: 0;
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 3.5rem;
 
-    background: rgba(44,111,170, 0.8);
+    background: rgba(44,111,170, 0.8) no-repeat;
     border-bottom: 4px rgba(175, 0, 15, 1) solid;
 }
 

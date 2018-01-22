@@ -11,30 +11,25 @@
 
 {% include "industry/blocks/heading.html" %}
 
-<div class="container">
 {% if page.subsections %}
-<div id="accordion" role="tablist" aria-multiselectable="true">
+<div class="container subsections">
+<div class="panel-group col-md-10" id="accordion">
 {% for block in page.subsections %}
-  <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          {% include_block block %}
-        </a>
-      </h5>
+    <div class="panel panel-default">
+    {% include_block block with position=forloop.counter %}
     </div>
-  </div>
 {% endfor %}
+</div>
 </div>
 {% endif %}
 
 {% if page.get_children %}
+<div class="container">
 <h1>Related Industries</h1>
 {% for tile in page.get_children %}
     <h2><a href="{% pageurl tile %}">{{ tile.title }}</a></h2>
     {{ tile.specific.description }}
 {% endfor %}
 {% endif %}
-
 </div>
 {% endblock %}

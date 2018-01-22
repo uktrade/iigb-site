@@ -38,6 +38,7 @@ def is_active(page, current_page):
 # a dropdown class to be applied to a parent
 @register.inclusion_tag('tags/top_menu.html', takes_context=True)
 def top_menu(context, parent, calling_page=None):
+
     menuitems = parent.get_children().live().in_menu()
     for menuitem in menuitems:
         menuitem.show_dropdown = has_menu_children(menuitem)

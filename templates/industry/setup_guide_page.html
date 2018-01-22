@@ -6,10 +6,17 @@
 {% block body_class %}setup-guide{% endblock %}
 
 {% block content %}
-<div class="container">
-{% for block in page.subsections %}
-    {% include_block block %}
-{% endfor %}
 
+{% if page.subsections %}
+<div class="container subsections">
+<div class="panel-group col-md-10" id="accordion">
+{% for block in page.subsections %}
+    <div class="panel panel-default">
+    {% include_block block with position=forloop.counter %}
+    </div>
+{% endfor %}
 </div>
+</div>
+{% endif %}
+
 {% endblock %}

@@ -14,10 +14,10 @@ class IndustriesLandingPage(Page):
     subpage_types = ['industry.IndustryPage']
 
     # page fields
-    lockup = models.CharField(max_length=255)
+    heading = models.CharField(max_length=255)
 
     content_panels = Page.content_panels + [
-        FieldPanel('lockup'),
+        FieldPanel('heading'),
     ]
 
     def get_context(self, request):
@@ -46,7 +46,8 @@ class IndustryPage(Page):
     featured = models.BooleanField(default=False)  # industry appears in home
 
     # page fields
-    lockup = models.CharField(max_length=255)
+    heading = models.CharField(max_length=255)
+
     hero_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -63,7 +64,7 @@ class IndustryPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('description'),
         ImageChooserPanel('hero_image'),
-        FieldPanel('lockup'),
+        FieldPanel('heading'),
         StreamFieldPanel('subsections')
     ]
 
@@ -72,10 +73,10 @@ class SetupGuideLandingPage(Page):
     subpage_types = ['industry.SetupGuidePage']
 
     # page fields
-    lockup = models.CharField(max_length=255)
+    heading = models.CharField(max_length=255)
 
     content_panels = Page.content_panels + [
-        FieldPanel('lockup'),
+        FieldPanel('heading'),
     ]
 
 
@@ -85,7 +86,7 @@ class SetupGuidePage(Page):
     description = models.TextField(max_length=255)  # appears in tile
 
     # page fields
-    lockup = models.CharField(max_length=255)
+    heading = models.CharField(max_length=255)
 
     # accordion
     subsections = StreamField([
@@ -94,7 +95,7 @@ class SetupGuidePage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('description'),
-        FieldPanel('lockup'),
+        FieldPanel('heading'),
         StreamFieldPanel('subsections')
     ]
 

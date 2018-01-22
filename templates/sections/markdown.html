@@ -1,6 +1,11 @@
 {% load wagtailmarkdown %}
-
-<div>
-    <h2>{{ self.title }}</h2>
-    <p>{{ self.content|markdown }}</p>
+<div class="panel-heading row">
+    <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ position }}">{{ self.title }}<span style="float: right">+</span></a>
+    </h4>
+</div>
+<div id="collapse{{ position }}" class="panel-collapse collapse{% if position == 1 %} in{% endif %}">
+    <div class="panel-body">
+        {{ self.content|markdown }}
+    </div>
 </div>

@@ -10,9 +10,10 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 class HomePage(Page):
     subpage_types = ['industry.IndustriesLandingPage', 'industry.SetupGuideLandingPage']
 
-    # lockup and hero are so they can be easily queried per page
-    lockup = models.CharField(max_length=255)
-    header_video = models.URLField(null=True)
+    # header and hero are so they can be easily queried per page
+    heading = models.CharField(max_length=255)
+    sub_heading = models.CharField(max_length=255)
+
     hero_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -22,7 +23,7 @@ class HomePage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('lockup'),
-        FieldPanel('header_video'),
+        FieldPanel('heading'),
+        FieldPanel('sub_heading'),
         ImageChooserPanel('hero_image'),
     ]
